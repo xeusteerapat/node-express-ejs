@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>EJS Basic</title>
+    <style>
+      body {
+        padding: 5rem 5rem 10rem;
+        line-height: 1.7;
+        font-family: 'Nunito Sans', sans-serif;
+        color: #555;
+        min-height: 100vh;
+        background: linear-gradient(to bottom right, #9be15d, #00e3ae);
+      }
+
+      .aligncenter {
+        display: flex;
+        align-items: center;
+      }
+
+      h1 {
+        font-family: 'Megrim', sans-serif;
+        font-size: 6rem;
+        color: white;
+        transform: skewY(-5deg);
+        text-align: center;
+        position: relative;
+        word-spacing: 3px;
+      }
+
+      h1::before {
+        content: '';
+        display: block;
+        height: 65%;
+        width: 49%;
+        position: absolute;
+        top: 105%;
+        left: 50%;
+        background: linear-gradient(to bottom, #9be15d, #00e3ae);
+        opacity: 0.8;
+        z-index: -1;
+        transform: skewY(370deg) translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Codecamp Students</h1>
+          <p class="lead">
+            We are fighting with COVID-19 together!
+          </p>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">First</th>
+            <th scope="col">Point</th>
+            <th scope="col">Favorite Fruit</th>
+            <th scope="col">Description</th>
+            <th scope="col">View Detail</th>
+          </tr>
+        </thead>
+        <% for (let student of studentsList) {%>
+        <tbody>
+          <tr>
+            <th scope="row"><%= student.id%></th>
+            <td><%= student.name%></td>
+            <td><%= student.point%></td>
+            <td><%= student.picture%></td>
+            <td><%= student.description%></td>
+            <td><a href="/student/<%=student.id%>">View</a></td>
+          </tr>
+        </tbody>
+        <%}%>
+      </table>
+    </div>
+  </body>
+</html>
